@@ -1,0 +1,153 @@
+:root {
+    --background-primary: #ffffff;
+    --background-secondary: #2e2727;
+    --card-background: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #b3b3b3;
+    --text-tertiary: #ffffff;
+    --accent-color: #086CF9;
+    --accent-color-hover: #0351c6;
+    --border-color: #cccccc;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --shadow-hover: rgba(0, 0, 0, 0.5);
+    --scrollbar-background: #dadada;
+}
+
+.dark-theme {
+    --background-primary: #1a1a1a;
+    --card-background: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --border-color: #444444;
+    --scrollbar-background: #303030;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "Geometria", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    background: var(--background-primary);
+}
+
+html, body {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: var(--background-primary);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Стили скроллбара */
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-background);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    background: var(--accent-color);
+    transition: background 0.4s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color-hover);
+}
+
+/* LOADER */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99;
+    transition: opacity 0.3s ease;
+}
+
+.car {
+    &__body {
+        animation: shake 0.2s ease-in-out infinite alternate;
+    }
+
+    &__line {
+        transform-origin: center right;
+        stroke-dasharray: 22;
+        animation: line 0.8s ease-in-out infinite;
+        animation-fill-mode: both;
+
+        &--top {
+            animation-delay: 0s;
+        }
+
+        &--middle {
+            animation-delay: 0.2s;
+        }
+
+        &--bottom {
+            animation-delay: 0.4s;
+        }
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translateY(-1%);
+    }
+    100% {
+        transform: translateY(3%);
+    }
+}
+
+@keyframes line {
+    0% {
+        stroke-dashoffset: 22;
+    }
+    25% {
+        stroke-dashoffset: 22;
+    }
+    50% {
+        stroke-dashoffset: 0;
+    }
+    51% {
+        stroke-dashoffset: 0;
+    }
+    80% {
+        stroke-dashoffset: -22;
+    }
+    100% {
+        stroke-dashoffset: -22;
+    }
+}
