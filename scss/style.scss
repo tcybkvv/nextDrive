@@ -498,7 +498,8 @@ input:checked + .slider {
     .footer__contact,
     .footer__social {
         max-width: 100%;
-        text-align: center;
+        display: flex;
+        align-items: center;
     }
 
     .carousel {
