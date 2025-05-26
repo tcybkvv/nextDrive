@@ -60,6 +60,9 @@ const showCarDetails = (car) => {
     const detailsContainer = document.createElement("div");
     detailsContainer.className = "car-details-container";
 
+    const callButton = document.createElement("button");
+    callButton.textContent = "Позвонить";
+
     const backButton = document.createElement("button");
     backButton.textContent = "Вернуться";
     backButton.onclick = () => {
@@ -121,6 +124,7 @@ const showCarDetails = (car) => {
         <p><b>Двигатель:</b> ${car.engine}</p>
         <p><b>Состояние:</b> ${car.condition}</p>
     `;
+    details.appendChild(callButton);
     details.appendChild(backButton);
     detailsContainer.appendChild(details);
 
